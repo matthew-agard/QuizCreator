@@ -56,7 +56,7 @@ public class QuestionJSONSerializer {
         return questions;
     }
 
-    public void saveBugs(ArrayList<Question> questions) throws IOException, JSONException {
+    public void saveQuestions(ArrayList<Question> questions) throws IOException, JSONException {
         JSONArray array = new JSONArray();
         for(Question question : questions)
             array.put(question.toJSON());
