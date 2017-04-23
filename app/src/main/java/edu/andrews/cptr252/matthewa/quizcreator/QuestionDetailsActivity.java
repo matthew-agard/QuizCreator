@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -16,11 +15,12 @@ import java.util.UUID;
  * Created by Matthew Agard on 4/7/2017.
  */
 
-public class QuestionDetailsActivity extends FragmentActivity {
+public class QuestionDetailsActivity extends FragmentActivity
+    implements QuestionDetailsFragment.Callbacks {
     private ViewPager mViewPager;
     private ArrayList<Question> mQuestions;
 
-    public void onBugUpdated(Question question) {
+    public void onQuestionUpdated(Question question) {
         // do nothing
     }
 
@@ -59,13 +59,13 @@ public class QuestionDetailsActivity extends FragmentActivity {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i2); {}
+            public void onPageScrolled(int i,float v, int i2)  {}
 
             @Override
             public void onPageSelected(int i) {
                 Question question = mQuestions.get(i);
                 if(question.getQuestion() != null)
-                    setQuestion(question.getQuestion());
+                    setTitle(question.getQuestion());
             }
 
             @Override
@@ -76,12 +76,12 @@ public class QuestionDetailsActivity extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_quiz_creator);
+        getMenuInflater().inflate(R.menu.menu_quiz_creator, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemsSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.

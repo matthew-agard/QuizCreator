@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Question {
     private UUID mId;
     private String mQuestion;
-    private boolean mAnswerTrue;
+    private boolean mAnswer;
 
     public Question() {
         mId = UUID.randomUUID();
@@ -34,12 +34,12 @@ public class Question {
         mQuestion = question;
     }
 
-    public boolean isAnswerTrue() {
-        return mAnswerTrue;
+    public void setAnswer(boolean answer) {
+        mAnswer = answer;
     }
 
-    public void setAnswerTrue(boolean answerTrue) {
-        mAnswerTrue = answerTrue;
+    public boolean getAnswer() {
+        return mAnswer;
     }
 
     private static final String JSON_ID = "id";
@@ -49,7 +49,7 @@ public class Question {
     public Question(JSONObject json) throws JSONException {
         mId = UUID.fromString(json.getString(JSON_ID));
         mQuestion = json.getString(JSON_QUESTION);
-        mAnswerTrue = json.getBoolean(JSON_ANSWER);
+        mAnswer = json.getBoolean(JSON_ANSWER);
     }
 
     public JSONObject toJSON() throws JSONException {
@@ -57,7 +57,7 @@ public class Question {
 
         json.put(JSON_ID, mId.toString());
         json.put(JSON_QUESTION, mQuestion);
-        json.put(JSON_ANSWER, mAnswerTrue);
+        json.put(JSON_ANSWER, mAnswer);
 
         return json;
     }

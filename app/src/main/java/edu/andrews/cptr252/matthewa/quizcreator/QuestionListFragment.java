@@ -6,7 +6,6 @@ package edu.andrews.cptr252.matthewa.quizcreator;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -19,7 +18,6 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class QuestionListFragment extends ListFragment {
@@ -46,9 +44,9 @@ public class QuestionListFragment extends ListFragment {
                     (TextView) convertView.findViewById(R.id.list_item_question);
             questionTextView.setText(question.getQuestion());
 
-            TextView answerTextView =
+            TextView answerView =
                     (TextView) convertView.findViewById(R.id.list_item_answer);
-            answerTextView.setText(question.isAnswerTrue());
+            answerView.setEnabled(question.getAnswer());
 
             return convertView;
         }
@@ -65,10 +63,10 @@ public class QuestionListFragment extends ListFragment {
     }
 
     @Override
-    public void OnListItemClick(ListView 1, View v, int position, long id) {
-        Question question = (Question) (getListAdapter()).getItem(position);
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Question question = (Question)(getListAdapter()).getItem(position);
 
-        // Let the activity decided how the selected question is displayed
+        // Let the activity decide how selected bug is displayed.
         mCallbacks.onQuestionSelected(question);
     }
 
@@ -108,7 +106,7 @@ public class QuestionListFragment extends ListFragment {
         // Let the activity decide to launch
         // details fragment or update question in current
         // details fragment (in case of split screen).
-        mCallbacks.onQuestionSelected();
+        mCallbacks.onQuestionSelected(question);
     }
 
     @Override

@@ -83,5 +83,27 @@ public class QuestionDetailsFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+
+        mTrue = (Button) v.findViewById(R.id.question_answer_true);
+        mTrue.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mQuestion.setAnswer(true);
+            }
+        });
+
+        mFalse = (Button) v.findViewById(R.id.question_answer_false);
+        mFalse.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mQuestion.setAnswer(false);
+            }
+        });
+
+        return v;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        QuestionList.getInstance(getActivity()).saveQuestions();
     }
 }
