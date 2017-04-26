@@ -1,15 +1,17 @@
 package edu.andrews.cptr252.matthewa.quizcreator;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button mQuestionList, mQuizMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mQuestionList = (Button) findViewById(R.id.question_list_go);
+        mQuestionList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuestionList();
+            }
+        });
+
+        mQuizMode = (Button) findViewById(R.id.quiz_mode_go);
+        mQuizMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQuizMode();
+            }
+        });
     }
 
     @Override
@@ -39,5 +57,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startQuestionList() {
+        Intent i = new Intent(MainActivity.this, QuestionListActivity.class);
+        startActivity(i);
+    }
+
+    private void startQuizMode() {
+        Intent i = new Intent(MainActivity.this, QuizModeActivity.class);
+        startActivity(i);
     }
 }

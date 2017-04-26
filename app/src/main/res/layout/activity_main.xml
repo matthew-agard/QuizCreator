@@ -28,6 +28,7 @@
         android:text="Question List"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="startQuestionList"
         android:id="@+id/question_list_go"
         android:layout_marginStart="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -38,12 +39,14 @@
         android:text="Quiz Mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="startQuizMode"
         android:id="@+id/quiz_mode_go"
         android:layout_marginEnd="48dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="72dp"/>
+        android:layout_marginBottom="72dp"
+        />
 
     <ImageView
         android:layout_width="wrap_content"
