@@ -19,7 +19,7 @@
         android:layout_marginLeft="16dp"/>
 
     <EditText
-        android:layout_width="352dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:inputType="textPersonName"
         android:text="Enter your question here"

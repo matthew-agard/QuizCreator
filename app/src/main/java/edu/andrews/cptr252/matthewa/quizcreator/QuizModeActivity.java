@@ -6,9 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -16,7 +13,7 @@ import java.util.UUID;
  * Created by Matthew Agard on 4/7/2017.
  */
 
-public class QuizModeActivity extends FragmentActivity{
+public class QuizModeActivity extends FragmentActivity {
     private ViewPager mViewPager;
     private ArrayList<Question> mQuestions;
 
@@ -34,7 +31,7 @@ public class QuizModeActivity extends FragmentActivity{
             @Override
             public Fragment getItem(int i) {
                 Question question = mQuestions.get(i);
-                return QuestionDetailsFragment.newInstance(question.getId());
+                return QuizModeFragment.newInstance(question.getId());
             }
 
             @Override
@@ -67,26 +64,5 @@ public class QuizModeActivity extends FragmentActivity{
             @Override
             public void onPageScrollStateChanged(int i) {}
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_quiz_creator, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        // No inspection SimplifiableIfStatement
-        if(id == R.id.action_settings)
-            return true;
-
-        return super.onOptionsItemSelected(item);
     }
 }

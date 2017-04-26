@@ -19,7 +19,7 @@ public class QuestionWrongFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_answer_wrong, container, false);
 
-        mQuestionWrongView = (TextView) v.findViewById(R.id.answer_right);
+        mQuestionWrongView = (TextView) v.findViewById(R.id.answer_wrong);
         int questionWrong = getActivity().getIntent().getIntExtra(QuizModeFragment.EXTRA_ANSWER_WRGNG, R.string.answer_error);
         mQuestionWrongView.setText(questionWrong);
 

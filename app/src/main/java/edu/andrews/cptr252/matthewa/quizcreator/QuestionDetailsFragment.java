@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.UUID;
 
@@ -23,6 +24,7 @@ public class QuestionDetailsFragment extends Fragment {
     public static final String EXTRA_QUESTION_ID =
             "edu.andrews.cptr252.matthewa.quizcreator.question_id";
     private Question mQuestion;
+    private TextView mAnswer;
     private EditText mQuestionTitle;
     private Button mTrue, mFalse;
 
@@ -88,6 +90,8 @@ public class QuestionDetailsFragment extends Fragment {
         mTrue.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mQuestion.setAnswer(true);
+                mAnswer = (TextView) v.findViewById(R.id.list_item_answer);
+                mAnswer.setEnabled(mQuestion.getAnswer());
             }
         });
 
@@ -95,6 +99,8 @@ public class QuestionDetailsFragment extends Fragment {
         mFalse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mQuestion.setAnswer(false);
+                mAnswer = (TextView) v.findViewById(R.id.list_item_answer);
+                mAnswer.setEnabled(mQuestion.getAnswer());
             }
         });
 
