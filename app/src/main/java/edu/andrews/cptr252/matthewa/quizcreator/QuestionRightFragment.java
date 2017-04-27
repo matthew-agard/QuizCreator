@@ -19,10 +19,6 @@ public class QuestionRightFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_answer_right, container, false);
 
-        mQuestionRightView = (TextView) v.findViewById(R.id.answer_right);
-        int questionRight = getActivity().getIntent().getIntExtra(QuizModeFragment.EXTRA_ANSWER_RIGHT, R.string.answer_error);
-        mQuestionRightView.setText(questionRight);
-
         return v;
     }
 }

@@ -17,6 +17,7 @@ import java.util.UUID;
 
 public class QuestionDetailsActivity extends FragmentActivity
     implements QuestionDetailsFragment.Callbacks {
+
     private ViewPager mViewPager;
     private ArrayList<Question> mQuestions;
 

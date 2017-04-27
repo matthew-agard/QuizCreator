@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -41,12 +42,12 @@ public class QuestionListFragment extends ListFragment {
             Question question = getItem(position);
 
             TextView questionTextView =
-                    (TextView) convertView.findViewById(R.id.list_item_question);
+                    (TextView) convertView.findViewById(R.id.list_item_questionText);
             questionTextView.setText(question.getQuestion());
 
-            TextView answerView =
-                    (TextView) convertView.findViewById(R.id.list_item_answer);
-            answerView.setEnabled(question.getAnswer());
+            CheckBox answerView =
+                    (CheckBox) convertView.findViewById(R.id.list_item_answer);
+            answerView.setChecked(question.getAnswer());
 
             return convertView;
         }

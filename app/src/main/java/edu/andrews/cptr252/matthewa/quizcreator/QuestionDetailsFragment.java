@@ -9,10 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
-
 import java.util.UUID;
 
 /**
@@ -24,9 +23,8 @@ public class QuestionDetailsFragment extends Fragment {
     public static final String EXTRA_QUESTION_ID =
             "edu.andrews.cptr252.matthewa.quizcreator.question_id";
     private Question mQuestion;
-    private TextView mAnswer;
     private EditText mQuestionTitle;
-    private Button mTrue, mFalse;
+    private CheckBox mAnswerCheckBox;
 
     public QuestionDetailsFragment() {}
 
@@ -86,22 +84,16 @@ public class QuestionDetailsFragment extends Fragment {
             public void afterTextChanged(Editable s) {}
         });
 
-        mTrue = (Button) v.findViewById(R.id.question_answer_true);
-        mTrue.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mQuestion.setAnswer(true);
-                mAnswer = (TextView) v.findViewById(R.id.list_item_answer);
-                mAnswer.setEnabled(mQuestion.getAnswer());
+        mAnswerCheckBox = (CheckBox) v.findViewById(R.id.question_answer_checkbox);
+        mAnswerCheckBox.setChecked(mQuestion.getAnswer());
+        mAnswerCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mQuestion.setAnswer(isChecked);
+                Log.d(TAG, "Set answer status to " + isChecked);
+                mCallbacks.onQuestionUpdated(mQuestion);
             }
-        });
 
-        mFalse = (Button) v.findViewById(R.id.question_answer_false);
-        mFalse.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mQuestion.setAnswer(false);
-                mAnswer = (TextView) v.findViewById(R.id.list_item_answer);
-                mAnswer.setEnabled(mQuestion.getAnswer());
-            }
         });
 
         return v;

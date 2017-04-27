@@ -22,10 +22,6 @@ public class Question {
         return mId;
     }
 
-    public void setId(UUID id) {
-        mId = id;
-    }
-
     public String getQuestion() {
         return mQuestion;
     }

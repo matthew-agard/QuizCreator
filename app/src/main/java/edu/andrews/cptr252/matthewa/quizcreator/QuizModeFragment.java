@@ -71,11 +71,11 @@ public class QuizModeFragment extends Fragment {
         mFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mQuestion.getAnswer() == false) {
-                    Intent i = new Intent(getActivity(), QuestionWrongActivity.class);
+                if (mQuestion.getAnswer() == false) {
+                    Intent i = new Intent(getActivity(), QuestionRightActivity.class);
                     startActivity(i);
                 } else {
-                    Intent i = new Intent(getActivity(), QuestionRightActivity.class);
+                    Intent i = new Intent(getActivity(), QuestionWrongActivity.class);
                     startActivity(i);
                 }
             }
