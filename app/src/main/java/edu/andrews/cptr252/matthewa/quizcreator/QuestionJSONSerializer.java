@@ -16,7 +16,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 
 /**
- * Created by Matthew Agard on 4/6/2017.
+ * Used to save and retrieve the
+ * questions entered by the user
  */
 
 public class QuestionJSONSerializer {
@@ -28,6 +29,7 @@ public class QuestionJSONSerializer {
         mFilename = f;
     }
 
+    /** Load the questions entered by the user by reading them in from a JSON file */
     public ArrayList<Question> loadQuestions() throws IOException, JSONException {
         ArrayList<Question> questions = new ArrayList<Question>();
         BufferedReader reader = null;
@@ -56,6 +58,7 @@ public class QuestionJSONSerializer {
         return questions;
     }
 
+    /** Save the questions entered by the user writing them out to a JSON file */
     public void saveQuestions(ArrayList<Question> questions) throws JSONException, IOException {
         JSONArray array = new JSONArray();
         for(Question question : questions)

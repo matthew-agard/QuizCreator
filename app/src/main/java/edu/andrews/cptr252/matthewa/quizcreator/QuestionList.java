@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * Hosts an ArrayList that stores, retrieves, and updates
+ * the question list created by the user
  */
 
 public class QuestionList {
@@ -21,7 +22,7 @@ public class QuestionList {
         sOurInstance = ourInstance;
     }
 
-    private ArrayList<Question> mQuestions;
+    private ArrayList<Question> mQuestions; // Stores the questions created by the user
     private Context mAppContext;
 
     public boolean saveQuestions() {

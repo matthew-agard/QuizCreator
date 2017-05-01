@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * Hosts all of the instances in QuestionDetailFragment.
+ * These instances are toggled using a viewpager
  */
 
 public class QuestionDetailsActivity extends FragmentActivity

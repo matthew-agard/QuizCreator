@@ -9,10 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+/**
+ * Inflates the layout seen by the user upon the app's creation.
+ * Buttons for creating a question list or taking your quiz
+ * are avaiable.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button mQuestionList, mQuizMode;
 
+    /** Inflates the layout the user sees once the
+     *  app is started
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +68,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /** Launches the question list activity */
     private void startQuestionList() {
         Intent i = new Intent(MainActivity.this, QuestionListActivity.class);
         startActivity(i);
     }
 
+    /** Launches the quiz mode */
     private void startQuizMode() {
         Intent i = new Intent(MainActivity.this, QuizModeActivity.class);
         startActivity(i);

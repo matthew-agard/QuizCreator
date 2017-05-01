@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * Activity that hosts the quiz mode fragments loaded based
+ * on how many questions are stored. Fragments are toggled
+ * using a viewpager.
  */
 
 public class QuizModeActivity extends FragmentActivity {

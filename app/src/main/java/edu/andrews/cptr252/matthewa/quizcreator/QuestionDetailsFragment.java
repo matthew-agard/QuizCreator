@@ -15,9 +15,10 @@ import android.widget.EditText;
 import java.util.UUID;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * A fragment class created as a new instance of QuestionDetailsActivity.
+ * Allows the user to customize a question and preset its answer before
+ * entering quiz mode
  */
-
 public class QuestionDetailsFragment extends Fragment {
     private static final String TAG = "QuestionDetailsFragment";
     public static final String EXTRA_QUESTION_ID =
@@ -28,6 +29,7 @@ public class QuestionDetailsFragment extends Fragment {
 
     public QuestionDetailsFragment() {}
 
+    /** Required interface to be implemented in hosting activities */
     public interface Callbacks {
         void onQuestionUpdated(Question question);
     }
@@ -46,6 +48,7 @@ public class QuestionDetailsFragment extends Fragment {
         mCallbacks = null;
     }
 
+    /** Creates a new question details fragment */
     public static QuestionDetailsFragment newInstance(UUID questionId) {
         Bundle args = new Bundle();
         args.putSerializable(EXTRA_QUESTION_ID, questionId);

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.util.UUID;
 
 /**
- * Created by Matthew Agard on 4/6/2017.
+ * Model componenets used to store data about a particular question
  */
 
 public class Question {

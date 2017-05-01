@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by Matthew Agard on 4/24/2017.
+ * Inflates the layout that displays the user answered incorrectly
  */
 
 public class QuestionWrongFragment extends Fragment {

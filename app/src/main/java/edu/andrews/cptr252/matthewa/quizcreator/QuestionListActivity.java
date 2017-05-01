@@ -6,7 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * Hosts the QuestionListFragments displayed in
+ * fragment_question_list layout
  */
 
 public class QuestionListActivity extends SingleFragmentActivity
@@ -14,6 +15,7 @@ public class QuestionListActivity extends SingleFragmentActivity
 
     public void onQuestionSelected(Question question) {
         if(findViewById(R.id.detailsFragmentContainer) == null) {
+            // Start an instance of QuestionDetailsActivity
             Intent i = new Intent(this, QuestionDetailsActivity.class);
             i.putExtra(QuestionDetailsFragment.EXTRA_QUESTION_ID, question.getId());
             startActivityForResult(i, 0);

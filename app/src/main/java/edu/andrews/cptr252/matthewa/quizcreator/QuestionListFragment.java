@@ -6,6 +6,7 @@ package edu.andrews.cptr252.matthewa.quizcreator;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -21,6 +22,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+/**
+ * A subclass of QuestionList that contains the details
+ * displayed for a specific question that's created by
+ * the user in QuestionDetailsFragment
+ */
 public class QuestionListFragment extends ListFragment {
     private static final String TAG = "QuestionListFragment";
     private ArrayList<Question> mQuestions;

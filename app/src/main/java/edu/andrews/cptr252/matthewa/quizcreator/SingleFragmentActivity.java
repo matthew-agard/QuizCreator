@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import static edu.andrews.cptr252.matthewa.quizcreator.R.layout.activity_fragment;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * Inflates the layout of a fragment
  */
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
@@ -19,6 +19,11 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         return R.layout.activity_fragment;
     }
 
+    /**
+     * Inflates the layout of a given fragment
+     * referenced by fragment_container
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,7 +15,9 @@ import java.util.UUID;
 import static edu.andrews.cptr252.matthewa.quizcreator.QuestionDetailsFragment.EXTRA_QUESTION_ID;
 
 /**
- * Created by Matthew Agard on 4/7/2017.
+ * Displays a question for the user to answer. A separate activity
+ * telling the user whether or not they're correct is launched from
+ * this class
  */
 
 public class QuizModeFragment extends Fragment {
